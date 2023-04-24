@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hours_item"
+    android:layout_width="73dp"
+    android:layout_height="114dp"
+    android:background="@drawable/rounded_corner_hours"
+    android:orientation="vertical"
+    android:layout_marginEnd="6dp"
+    android:layout_marginTop="15dp" >
+
+    <TextView
+        android:id="@+id/hours_time"
+        android:layout_width="45dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="9dp"
+        android:layout_gravity="center"
+        android:maxLines="1"
+        android:textColor="#8F96A1"
+        android:textSize="16sp"
+        tools:text="@tools:sample/lorem" />
+
+    <ImageView
+        android:id="@+id/hours_image"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/hours_temp"
+        android:layout_width="26dp"
+        android:layout_height="28dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="12dp"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="13" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

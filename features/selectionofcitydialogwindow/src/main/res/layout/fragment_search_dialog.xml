@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="343dp"
+    android:layout_height="180dp"
+    android:background="@drawable/rounded_corner_dialog"
+    tools:context="com.example.windowdialog.SearchDialogFragment">
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="311dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:inputType="textCapSentences"
+        android:paddingStart="40dp"
+        android:textColor="#2A2D33"
+        android:hint="@string/enter_city"
+        android:background="@drawable/box_edittext"
+        app:layout_constraintBottom_toTopOf="@id/button_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry" />
+
+    <ImageButton
+        android:id="@+id/img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:tint="#8F96A1"
+        android:src="@drawable/search"
+        android:background="@color/white"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toStartOf="@id/edit_text"
+        app:layout_constraintBottom_toBottomOf="@id/edit_text"
+        app:layout_constraintTop_toTopOf="@id/edit_text"/>
+
+    <ImageButton
+        android:id="@+id/img_remove"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:tint="#8F96A1"
+        android:src="@drawable/plus"
+        android:background="@color/white"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintEnd_toEndOf="@id/edit_text"
+        app:layout_constraintBottom_toBottomOf="@id/edit_text"
+        app:layout_constraintTop_toTopOf="@id/edit_text"/>
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="151dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#F3F5F8"
+        android:text="@string/cancel"
+        android:textAllCaps="false"
+        android:textColor="#707782"
+        app:cornerRadius="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text" />
+
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="151dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#3599FF"
+        android:text="@string/add"
+        android:textAllCaps="false"
+        app:cornerRadius="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_cancel"
+        app:layout_constraintTop_toBottomOf="@id/edit_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

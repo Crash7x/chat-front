@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="temp">%1$d°</string>
+    <string name="today">Сегодня %1$s</string>
+    <string name="message">"Произошла ошибка, повторите попытку"</string>
+</resources>

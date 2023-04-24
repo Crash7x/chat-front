@@ -1,0 +1,5 @@
+<resources>
+    <string name="enter_city">Введите город</string>
+    <string name="cancel">Отменить</string>
+    <string name="add">Добавить</string>
+</resources>
