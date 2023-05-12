@@ -9,6 +9,7 @@ plugins {
 android {
     compileSdk = AppConfig.compileSdk
     buildToolsVersion = AppConfig.buildToolsVersion
+    namespace = "com.example.weatherapp"
 
     defaultConfig {
         applicationId = "com.example.weatherapp"

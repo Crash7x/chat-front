@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.onEach
 fun <T> Flow<T>.observe(
     scope: CoroutineScope,
     action: suspend (T) -> Unit,
-    onError: (Throwable) -> Unit
+    onError: (Throwable) -> Unit = {}
 ) = this
     .onEach(action)
     .catch { onError(it) }

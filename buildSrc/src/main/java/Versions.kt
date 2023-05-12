@@ -1,7 +1,7 @@
 //version constants for the Kotlin DSL dependencies
 object Versions {
     //region app level
-    const val gradle = "7.2.1"
+    const val gradle = "7.4.2"
     const val kotlin = "1.6.10"
     const val safeArgs = "2.5.1"
     //endregion

@@ -40,6 +40,10 @@ android {
     buildFeatures {
         compose = true
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = AppDependencies.kotlinCompilerExtensionVersion
+    }
 }
 
 dependencies {

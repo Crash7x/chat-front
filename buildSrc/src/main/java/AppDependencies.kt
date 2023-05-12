@@ -62,8 +62,26 @@ object AppDependencies {
     private val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
     //endregion
 
+    //Compose
+    val kotlinCompilerExtensionVersion = "1.3.1" // See https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+    val uiComposeVersion = "1.3.3"
+    val uiCompose = "androidx.compose.ui:ui:$uiComposeVersion"
+    val uiToolingPreviewCompose = "androidx.compose.ui:ui-tooling-preview:$uiComposeVersion"
+    val uiToolingCompose = "androidx.compose.ui:ui-tooling:$uiComposeVersion"
+    val uiTestManifestCompose = "androidx.compose.ui:ui-test-manifest:$uiComposeVersion"
+    val activityCompose = "androidx.activity:activity-compose:1.6.1"
+    val materialCompose = "androidx.compose.material:material:1.3.1"
+    val constrainCompose = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+
     //region appLibraries list
     val appLibraries = listOf(
+        constrainCompose,
+        materialCompose,
+        activityCompose,
+        uiTestManifestCompose,
+        uiToolingCompose,
+        uiToolingPreviewCompose,
+        uiCompose,
         kotlinStdLib,
         coreKtx,
         appcompat,

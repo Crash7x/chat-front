@@ -14,7 +14,7 @@ class CityViewModel : ViewModel() {
     private var _messageError = MutableSingleEventFlow<Int>()
     val messageError get() = _messageError.asSharedFlow()
 
-    fun loadData() {
+    init {
         _citiesList.tryEmit(
             listOf(
                 CityElement(
@@ -61,6 +61,36 @@ class CityViewModel : ViewModel() {
                 ),
                 CityElement(
                     cityName = "Прага",
+                    minimumTemperature = 25,
+                    maximumTemperature = 25,
+                    weatherIcon = Icon.CLOUD,
+                ),
+                CityElement(
+                    cityName = "Бразилиа",
+                    minimumTemperature = 25,
+                    maximumTemperature = 25,
+                    weatherIcon = Icon.CLOUD,
+                ),
+                CityElement(
+                    cityName = "Санкт-Петербург",
+                    minimumTemperature = 25,
+                    maximumTemperature = 25,
+                    weatherIcon = Icon.CLOUD,
+                ),
+                CityElement(
+                    cityName = "Волгоград",
+                    minimumTemperature = 25,
+                    maximumTemperature = 25,
+                    weatherIcon = Icon.CLOUD,
+                ),
+                CityElement(
+                    cityName = "Омск",
+                    minimumTemperature = 25,
+                    maximumTemperature = 25,
+                    weatherIcon = Icon.CLOUD,
+                ),
+                CityElement(
+                    cityName = "Томск",
                     minimumTemperature = 25,
                     maximumTemperature = 25,
                     weatherIcon = Icon.CLOUD,
