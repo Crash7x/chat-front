@@ -2,7 +2,6 @@ package com.example.weather
 
 import android.Manifest
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,42 +69,25 @@ class DailyWeatherFragment : Fragment() {
 
         setFragmentResultListener(TransmitNameCityByKey.REQUEST_KEY) { key, bundle ->
             val result = bundle.getString(TransmitNameCityByKey.BUNDLE_KEY)
-            viewModel.displayDataWeather(result.toString())
-        }
 
+        }
+        viewModel.displayDataWeather("Тамбов")
         binding.search.setOnClickListener {
             viewModel.actionToScreenCity()
         }
 
         getWeatherByLocation()
+        viewModel.test()
 
-        binding.recycler.adapter = fastAdapter
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.header.observe(
-            viewLifecycleOwner.lifecycleScope,
-            action = { FastAdapterDiffUtil[headerAdapter] = it.map(::HeaderItem) },
-            onError = { Log.e("log", "error") }
-        )
-        viewModel.dailyWeather.observe(
-            viewLifecycleOwner.lifecycleScope,
-            action = { FastAdapterDiffUtil[itemAdapter] = it.map(::DailyItem) },
-            onError = { Log.e("log", "error") }
-        )
-        viewModel.city.observe(
-            viewLifecycleOwner.lifecycleScope,
-            action = { binding.city.text = it },
-            onError = { Log.e("log", "error") }
-        )
-        viewModel.message.observe(
-            viewLifecycleOwner.lifecycleScope,
-            action = { Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show() },
-            onError = { Log.e("log", "error") }
-        )
+        binding.recycler.setContent {
+            ChatScreen(viewModel = viewModel)
+        }
     }
 
     private fun getWeatherByLocation() {

@@ -21,6 +21,15 @@ android {
         testInstrumentationRunner = AppConfig.androidTestInstrumentation
     }
 
+    signingConfigs {
+        create("weather release") {
+            keyAlias = "weather"
+            keyPassword = "qwerty1234"
+            storeFile = file("$rootDir/keystore/weather.jks")
+            storePassword = "qwerty1234"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -28,11 +37,15 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("Boolean", "ENABLING_SCREEN_CITY", "true")
+            signingConfig = signingConfigs.getByName("weather release")
         }
         debug {
-            isMinifyEnabled = false
-            buildConfigField("Boolean", "ENABLING_SCREEN_CITY", "true")
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.getByName("weather release")
         }
     }
     compileOptions {

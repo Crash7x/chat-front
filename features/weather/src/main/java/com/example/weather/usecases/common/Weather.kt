@@ -13,6 +13,7 @@ data class TodayWeather(
     val date: Date,
     var icon: Icon,
     val temp: Int,
+    val feelTemp: Int,
     val description: String,
 )
 

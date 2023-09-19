@@ -11,7 +11,7 @@ private const val LONGITUDE = "lon"
 
 interface ApiWeatherService {
     @GET("forecast?lang=ru&units=metric&appid=296dbfe3af91642e2df4bf1e68064c26")
-    fun getApi(@Query(CITY_NAME) cityName: String): Single<WeatherModel>
+    suspend fun getApi(@Query(CITY_NAME) cityName: String): WeatherModel
 
     @GET("forecast?lang=ru&units=metric&appid=296dbfe3af91642e2df4bf1e68064c26")
     fun getLocation(

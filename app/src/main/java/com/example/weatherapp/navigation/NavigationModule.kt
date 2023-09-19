@@ -14,7 +14,7 @@ class NavigationModule {
     @Provides
     @Singleton
     fun providesNavigationScreen(): WeatherNavigationProvider {
-        return if (BuildConfig.ENABLING_SCREEN_CITY == true) {
+        return if (true) {
             NavigationFromWeatherScreenToCityScreen()
         } else {
             NavigationFromWeatherScreenToDialogScreen()

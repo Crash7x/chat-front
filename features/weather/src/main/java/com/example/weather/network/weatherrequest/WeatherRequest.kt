@@ -10,20 +10,17 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class WeatherRequest(private val api: ApiWeatherService) : WeatherService {
-    override fun getWeather(cityName: String): Single<Weather> {
-        return api.getApi(cityName)
-            .map { weatherModel ->
-                Weather(
-                    headerWeather = buildList {
-                        add(weatherModel.list.mapToHeaderDisplayModel())
-                    },
-                    dailyWeather = buildList {
-                        addAll(weatherModel.list.mapToDisplayModel())
-                    },
-                    cityName = weatherModel.city.name
-                )
-            }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+    override suspend fun getWeather(cityName: String): Weather {
+        val weatherModel = api.getApi(cityName)
+
+        return Weather(
+            headerWeather = buildList {
+                add(weatherModel.list.mapToHeaderDisplayModel())
+            },
+            dailyWeather = buildList {
+                addAll(weatherModel.list.mapToDisplayModel())
+            },
+            cityName = weatherModel.city.name
+        )
     }
 }

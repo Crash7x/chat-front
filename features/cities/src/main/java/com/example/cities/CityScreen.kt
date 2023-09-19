@@ -40,14 +40,15 @@ import com.example.cities.items.CityItemRow
 import com.example.core.models.Icon
 
 @Composable
-fun CitiesScreen(viewModel: CityViewModel) {
+fun CitiesScreen(viewModel: CityViewModel, modifier: Modifier = Modifier) {
     val cities by viewModel.citiesList.collectAsState()
-    CitiesMain(cities = cities)
+    RootLayout(cities = cities, viewModel::addCity, modifier = modifier)
 }
 
 @Composable
-fun CitiesMain(
+fun RootLayout(
     cities: List<CityElement>,
+    onClickAddCity: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     ConstraintLayout {
@@ -63,7 +64,7 @@ fun CitiesMain(
             CitiesList(cities = cities, modifier)
         }
 
-        BottomPanel(modifier.constrainAs(bottomPanel) {
+        BottomPanel(onClickAddCity, modifier.constrainAs(bottomPanel) {
             start.linkTo(parent.start)
             end.linkTo(parent.end)
             bottom.linkTo(parent.bottom)
@@ -73,7 +74,7 @@ fun CitiesMain(
 }
 
 @Composable
-fun Toolbar(modifier: Modifier) {
+fun Toolbar(modifier: Modifier= Modifier) {
     Row(
         modifier
             .fillMaxWidth()
@@ -113,10 +114,8 @@ fun Toolbar(modifier: Modifier) {
     }
 }
 
-private fun listColorGradient() = listOf(Color.Transparent, Color.White)
-
 @Composable
-fun BottomPanel(modifier: Modifier) {
+fun BottomPanel(onClickAddCity: () -> Unit, modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
             .height(193.dp)
@@ -137,7 +136,7 @@ fun BottomPanel(modifier: Modifier) {
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { onClickAddCity() },
                 shape = RoundedCornerShape(12.dp),
                 elevation = elevation(
                     defaultElevation = 0.dp,
@@ -184,31 +183,12 @@ fun CitiesList(cities: List<CityElement>, modifier: Modifier) {
 )
 @Composable
 fun previewScreen() {
-    CitiesMain(
+    RootLayout(
         cities = listOf(
             CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
-            CityElement("Москва", 10, 30, Icon.CLOUD),
-            CityElement("Тамбов", 10, 30, Icon.CLOUD),
             CityElement("Москва", 10, 30, Icon.CLOUD)
-        )
+        ),
+        {}
     )
 }
 
@@ -218,10 +198,11 @@ fun previewScreen() {
 )
 @Composable
 fun previewScreenDark() {
-    CitiesMain(
+    RootLayout(
         cities = listOf(
             CityElement("Тамбов", 10, 30, Icon.CLOUD),
             CityElement("Москва", 10, 30, Icon.CLOUD)
-        )
+        ),
+        {}
     )
 }

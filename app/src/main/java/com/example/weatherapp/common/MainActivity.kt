@@ -1,17 +1,23 @@
 package com.example.weatherapp.common
 
+import android.Manifest
+import android.bluetooth.BluetoothAdapter
+import android.content.Intent
+import android.database.Cursor
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Browser
 import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
-import com.example.core.flow.observe
 import com.example.core.navigation.NavCommand
-import com.example.core.navigation.navigate
-import com.example.weatherapp.R
+import com.example.weatherapp.BluetoothState
+import com.example.weatherapp.ForegroundService
 import com.example.weatherapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.MutableSharedFlow
 import javax.inject.Inject
+
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
@@ -25,11 +31,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        navigationCommand.observe(
-            lifecycleScope,
-            action = { findNavController(R.id.container_fragment).navigate(it) },
-            onError = { Log.e("log","error", it) }
-        )
+
     }
 
     override fun onDestroy() {

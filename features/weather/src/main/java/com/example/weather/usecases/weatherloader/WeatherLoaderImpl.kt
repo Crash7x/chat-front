@@ -4,7 +4,7 @@ import com.example.weather.usecases.common.Weather
 import io.reactivex.Single
 
 class WeatherLoaderImpl(private val weatherService: WeatherService) : WeatherLoader {
-    override fun getWeather(cityName: String): Single<Weather> {
+    override suspend fun getWeather(cityName: String): Weather {
         return weatherService.getWeather(cityName)
     }
 }

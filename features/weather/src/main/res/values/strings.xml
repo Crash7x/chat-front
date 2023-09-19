@@ -4,4 +4,5 @@
     <string name="temp">%1$d°</string>
     <string name="today">Сегодня %1$s</string>
     <string name="message">"Произошла ошибка, повторите попытку"</string>
+    <string name="feels_temp_and_description">%s, ощущается как %s°</string>
 </resources>

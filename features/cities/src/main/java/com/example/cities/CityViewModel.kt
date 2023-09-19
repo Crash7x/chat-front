@@ -119,10 +119,6 @@ class CityViewModel : ViewModel() {
 
     }
 
-    fun enterCityThroughDialogWindow() {
-
-    }
-
     fun removeCity() {
 
     }

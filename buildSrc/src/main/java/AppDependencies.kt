@@ -72,9 +72,11 @@ object AppDependencies {
     val activityCompose = "androidx.activity:activity-compose:1.6.1"
     val materialCompose = "androidx.compose.material:material:1.3.1"
     val constrainCompose = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+    val inmutableList = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
 
     //region appLibraries list
     val appLibraries = listOf(
+        inmutableList,
         constrainCompose,
         materialCompose,
         activityCompose,

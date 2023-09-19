@@ -4,5 +4,5 @@ import com.example.weather.usecases.common.Weather
 import io.reactivex.Single
 
 interface WeatherLoader {
-    fun getWeather(cityName: String): Single<Weather>
+    suspend fun getWeather(cityName: String): Weather
 }
